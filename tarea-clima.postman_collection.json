@@ -305,6 +305,29 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "tarea propia + clima externo maneja error 502",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/tareas/1/clima/Pachuca",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tareas",
+            "1",
+            "clima",
+            "Pachuca"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
