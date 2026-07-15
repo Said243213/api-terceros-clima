@@ -6,6 +6,8 @@ const morgan = require('morgan');
 
 const tareasRouter = require('./routes/tareas');
 const climaRouter = require('./routes/clima');
+const authRouter = require('./routes/auth');
+const verificarToken = require('./middleware/auth');
 
 const app = express();
 
@@ -19,8 +21,12 @@ app.get('/api/salud', (req, res) => {
   });
 });
 
-app.use('/api/tareas', tareasRouter);
-app.use('/api/clima', climaRouter);
+// Rutas públicas
+app.use('/api/auth', authRouter);
+
+// Rutas protegidas con JWT
+app.use('/api/tareas', verificarToken, tareasRouter);
+app.use('/api/clima', verificarToken, climaRouter);
 
 const PORT = process.env.PORT || 3000;
 
